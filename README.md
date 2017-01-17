@@ -1,4 +1,4 @@
-Themes
+Laravel Themes
 ==================
 Themes gives the means to group together a set of views and assets for Laravel 5.3. 
 This gives an easy way to further decouple the way your web application looks from your code base.
