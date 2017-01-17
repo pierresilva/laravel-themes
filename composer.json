@@ -1,5 +1,5 @@
 {
-    "name": "pierresilva/themes",
+    "name": "pierresilva/laravel-themes",
     "description": "Laravel 5.3 Themes Support",
     "keywords": ["themes", "laravel", "pierresilva", "blade"],
     "license": "MIT",
@@ -18,7 +18,7 @@
     },
     "autoload": {
         "psr-4": {
-            "pierresilva\\Themes\\": "src/"
+            "pierresilva\\LaravelThemes\\": "src/"
         }
     }
 }

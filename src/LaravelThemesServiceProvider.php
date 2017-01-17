@@ -1,9 +1,9 @@
 <?php
-namespace pierresilva\Themes;
+namespace pierresilva\LaravelThemes;
 
 use Illuminate\Support\ServiceProvider;
 
-class ThemesServiceProvider extends ServiceProvider {
+class LaravelThemesServiceProvider extends ServiceProvider {
 
 	/**
 	 * Indicates if loading of the provider is deferred.
@@ -20,7 +20,7 @@ class ThemesServiceProvider extends ServiceProvider {
 	public function boot()
 	{
 		$this->publishes([
-			__DIR__.'/../config/themes.php' => config_path('themes.php')
+			__DIR__.'/../config/laravel-themes.php' => config_path('laravel-themes.php')
 		]);
 	}
 
@@ -32,7 +32,7 @@ class ThemesServiceProvider extends ServiceProvider {
 	public function register()
 	{
 		$this->mergeConfigFrom(
-		    __DIR__.'/../config/themes.php', 'pierresilva.themes'
+		    __DIR__.'/../config/laravel-themes.php', 'themes'
 		);
 
 		$this->registerServices();

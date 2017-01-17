@@ -1,6 +1,6 @@
 <?php
 
-namespace pierresilva\Themes\Exceptions;
+namespace pierresilva\LaravelThemes\Exceptions;
 
 use Exception;
 

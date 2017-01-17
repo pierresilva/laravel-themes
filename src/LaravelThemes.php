@@ -1,16 +1,16 @@
 <?php
 
-namespace pierresilva\Themes;
+namespace pierresilva\LaravelThemes;
 
 use URL;
-use pierresilva\Themes\Exceptions\FileMissingException;
+use pierresilva\LaravelThemes\Exceptions\FileMissingException;
 use Illuminate\Config\Repository;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\Http\Response;
 use Illuminate\View\Factory as ViewFactory;
 
-class Themes
+class LaravelThemes
 {
 	/**
 	 * @var string
