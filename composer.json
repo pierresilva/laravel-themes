@@ -1,0 +1,24 @@
+{
+    "name": "pierresilva/themes",
+    "description": "Laravel 5.3 Themes Support",
+    "keywords": ["themes", "laravel", "pierresilva", "blade"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Pierre Silva",
+            "email": "pierre.silva@lab3studio.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.6.4",
+        "illuminate/support": "5.3.*",
+        "illuminate/filesystem": "5.3.*",
+        "illuminate/view": "5.3.*",
+        "illuminate/config": "5.3.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "pierresilva\\Themes\\": "src/"
+        }
+    }
+}
