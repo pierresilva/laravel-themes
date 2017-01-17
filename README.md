@@ -33,7 +33,7 @@ pierresilva\LaravelThemes\LaravelThemesServiceProvider::class,
 
 #### Facade
 ```php
-'Theme' => pierresilva\LaravelThemes\Facades\Theme::class,
+'Theme' => pierresilva\LaravelThemes\Facades\LaravelTheme::class,
 ```
 
 ## Start building some awesome themes!
