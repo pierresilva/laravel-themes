@@ -265,4 +265,5 @@ Note that we are using **@extends('bootstrap::layout')** in our login view, wher
 
 ## Author
 Inspired in [Caffeinated Themes](https://github.com/caffeinated/themes)
+
 [Pierre Silva](http://www.lab3studio.com)
