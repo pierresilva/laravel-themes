@@ -6,9 +6,9 @@ Quick Installation
 ------------------
 Begin by installing the package through Composer.
 
-```
+````
 composer require pierresilva/laravel-themes
-```
+````
 
 Once this operation is complete, simply add both the service provider and facade classes to your project's `config/app.php` file:
 
