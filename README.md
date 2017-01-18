@@ -264,6 +264,7 @@ Now, for our login.blade.php:
 Note that we are using **@extends('bootstrap::layout')** in our login view, where bootstrap is a theme slug defined in our theme.json and layout is our layout file.
 
 ## Author
-Inspired in [Caffeinated Themes](https://github.com/caffeinated/themes)
-
 [Pierre Silva](http://www.lab3studio.com)
+
+## License
+The Laravel Themes is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
