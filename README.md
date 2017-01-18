@@ -58,12 +58,12 @@ Each theme must come supplied with a manifest file (theme.json) stored at the ro
 }
 ```
 
-## Get Manifest Properties
+#### Get Manifest Properties
 ```php
 echo Theme::getProperty('theme::property_key', 'default value if nothing is returned');
 ```
 
-## Set Manifest Properties
+#### Set Manifest Properties
 ```php
 Theme::setProperty('theme::property_key', 'new value to be set');
 ```
