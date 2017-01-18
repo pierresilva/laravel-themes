@@ -408,7 +408,7 @@ class LaravelThemes
 	 */
 	protected function getModuleView($view)
 	{
-		if (class_exists('pierresilva\Modules\Modules')) {
+		if (class_exists('pierresilva\LaravelModules\Modules')) {
 			$viewSegments = explode('.', $view);
 
 			if ($viewSegments[0] == 'modules') {

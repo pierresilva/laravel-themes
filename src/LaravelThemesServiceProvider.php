@@ -2,6 +2,7 @@
 namespace pierresilva\LaravelThemes;
 
 use Illuminate\Support\ServiceProvider;
+use pierresilva\LaravelThemes\Providers\HelperServiceProvider;
 
 class LaravelThemesServiceProvider extends ServiceProvider {
 
@@ -35,6 +36,12 @@ class LaravelThemesServiceProvider extends ServiceProvider {
 		    __DIR__.'/../config/laravel-themes.php', 'themes'
 		);
 
+		$this->app->register(HelperServiceProvider::class);
+
+		$this->commands(
+            'pierresilva\LaravelThemes\Console\Generators\GenerateThemeCommand'
+        );
+
 		$this->registerServices();
 	}
 
@@ -56,11 +63,11 @@ class LaravelThemesServiceProvider extends ServiceProvider {
 	protected function registerServices()
 	{
 		$this->app->singleton('themes', function($app) {
-			return new Themes($app['files'], $app['config'], $app['view']);
+			return new LaravelThemes($app['files'], $app['config'], $app['view']);
 		});
 
 		$this->app->booting(function($app) {
 			$app['themes']->register();
-		});
+		});		
 	}
 }
