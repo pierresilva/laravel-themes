@@ -97,65 +97,64 @@ public function __construct()
 
 Facade Reference
 ----------------
-#### Themes
 
-### Theme::all()
+#### Theme::all()
 Get  all themes.
-#### Returns
+##### Returns
 Collection
-#### Example
+##### Example
 ```php
 $themes = Theme::all();
 ```
 
-### Theme::setActive($theme)
+#### Theme::setActive($theme)
 Sets the active theme that will be used to retrieve view files from.
 
-#### Parameters
+##### Parameters
 $theme (string) Theme slug. Required
-#### Returns
+##### Returns
 null
-#### Example
+##### Example
 ```php
 Theme::setActive('bootstrap-theme');
 ```
 
-### Theme::getActive()
+#### Theme::getActive()
 Returns the currently active theme. 
 
-#### Returns
+##### Returns
 string
-#### Example
+##### Example
 ```php
 $activeTheme = Theme::getActive();
 ```
 
-### Theme::view($view, $data)
+#### Theme::view($view, $data)
 Renders the defined view. This will first check if the currently active theme has the requested view file; if not, it will fallback to loading the view file from the default view directory supplied by Laravel. 
 
-#### Parameters
+##### Parameters
 $view (string) Relative path to view file. Required
 $data (mixed) Any additional data you'd like to pass along to the view file to be displayed.
-#### Returns
+##### Returns
 View
-#### Example
+##### Example
 ```php
 $foo = 'bar';
 
 return Theme::view('welcome', compact('foo'));
 ```
 
-### Theme::response($view, $data, $status, $headers)
+#### Theme::response($view, $data, $status, $headers)
 Rendered the defined view in the same manner that Theme::view() does, but allows the means to set a custom status response and header for the rendered page.
 
-#### Parameters
+##### Parameters
 $view (string) Relative path to view file. Required
 $data (mixed) Any additional data you'd like to pass along to the view file to be displayed.
 $status (integer) HTTP status code.
 $header (array) HTTP headers.
-#### Returns
+##### Returns
 Response
-#### Example
+##### Example
 ```php
 $posts = Post::orderBy('published', 'desc')->get();
 
