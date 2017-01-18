@@ -99,7 +99,7 @@ Facade Reference
 ----------------
 #### Themes
 
-##### Theme::all()
+## Theme::all()
 Get  all themes.
 # Returns
 Collection
@@ -108,7 +108,7 @@ Collection
 $themes = Theme::all();
 ```
 
-##### Theme::setActive($theme)
+## Theme::setActive($theme)
 Sets the active theme that will be used to retrieve view files from.
 
 # Parameters
@@ -120,7 +120,7 @@ null
 Theme::setActive('bootstrap-theme');
 ```
 
-##### Theme::getActive()
+## Theme::getActive()
 Returns the currently active theme. 
 
 # Returns
@@ -130,7 +130,7 @@ string
 $activeTheme = Theme::getActive();
 ```
 
-##### Theme::view($view, $data)
+## Theme::view($view, $data)
 Renders the defined view. This will first check if the currently active theme has the requested view file; if not, it will fallback to loading the view file from the default view directory supplied by Laravel. 
 
 # Parameters
@@ -145,7 +145,7 @@ $foo = 'bar';
 return Theme::view('welcome', compact('foo'));
 ```
 
-##### Theme::response($view, $data, $status, $headers)
+## Theme::response($view, $data, $status, $headers)
 Rendered the defined view in the same manner that Theme::view() does, but allows the means to set a custom status response and header for the rendered page.
 
 # Parameters
