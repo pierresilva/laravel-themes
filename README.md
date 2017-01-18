@@ -164,7 +164,105 @@ return Theme::response('blog.rss', compact('posts'), 200, [
 ```
 
 ## Start building some awesome themes!
+Let's say we have bootstrap theme in our application with the following structure:
+````
+public/
+    |-- themes/
+        |-- bootstrap/
+            |-- theme.json   <--- theme manifest file
+            |-- assets/
+                |-- css/
+                    |-- bootstrap.css
+                |-- img/
+                |-- js/
+                    |-- bootstrap.js
+                    |-- jquery.js
+            |-- views/
+                |-- layout.blade.php     <--- this is our view layout
+                |-- auth/
+                    |-- login.blade.php  <--- this is our login view
+````
+
+First, we need **theme.json** manifest file.
+
+```json
+{
+    "slug": "bootstrap",
+    "name": "Bootstrap",
+    "author": "Jhon Doe",
+    "description": "Bootstrap theme.",
+    "version": "1.0.0"
+}
+```
+
+```html
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Bootstrap Theme Sample</title>
+
+        <!-- Bootstrap core CSS -->
+        <link href="{{ Theme::asset('bootstrap::css/bootstrap.css') }}" rel="stylesheet">
+    </head>
+
+    <body>
+
+        <div class="container">
+            @yield('content')
+        </div>
+
+        <script src="{{ Theme::asset('bootstrap::js/jquery.js') }}"></script>
+        <script src="{{ Theme::asset('bootstrap::js/bootstrap.js') }}"></script>
+    </body>
+</html>
+```
+
+Please take note that we need to use **Theme::asset()** to load our theme asset files. The bootstrap is a theme slug defined in our **theme.json** file.
+
+In our controller, load the view using the following code:
+
+```php
+public function getLogin()
+{
+    return Theme::view('auth.login');
+}
+```
+
+Now, for our login.blade.php:
+
+```php
+@extends('bootstrap::layout')
+
+@section('content')
+    <h1>Log In</h1>
+
+    <form method="POST" action="/auth/login">
+        {!! csrf_field() !!}
+
+        <div>
+            Email
+            <input type="email" name="email" value="{{ old('email') }}">
+        </div>
+
+        <div>
+            Password
+            <input type="password" name="password" id="password">
+        </div>
+
+        <div>
+            <input type="checkbox" name="remember"> Remember Me
+        </div>
+
+        <div>
+            <button type="submit">Login</button>
+        </div>
+    </form>
+@endsection
+```
+
+Note that we are using **@extends('bootstrap::layout')** in our login view, where bootstrap is a theme slug defined in our theme.json and layout is our layout file.
 
 ## Author
-
+Inspired in [Caffeinated Themes](https://github.com/caffeinated/themes)
 [Pierre Silva](http://www.lab3studio.com)
