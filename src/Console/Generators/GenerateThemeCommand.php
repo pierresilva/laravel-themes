@@ -1,8 +1,8 @@
 <?php
 
-namespace pierresilva\LaravelThemes\Console\Generators;
+namespace pierresilva\Themes\Console\Generators;
 
-use pierresilva\LaravelThemes\LaravelThemes;
+use pierresilva\Themes\Themes;
 use Illuminate\Console\Command;
 use Illuminate\Filesystem\Filesystem;
 use Symfony\Component\Console\Helper\ProgressBar;
@@ -27,7 +27,7 @@ class GenerateThemeCommand extends Command
     /**
      * The themes instance.
      *
-     * @var LaravelThemes
+     * @var Themes
      */
     protected $theme;
 
@@ -48,10 +48,10 @@ class GenerateThemeCommand extends Command
     /**
      * Create a new command instance.
      *
-     * @param Filesystem    $files
-     * @param LaravelThemes $theme
+     * @param Filesystem $files
+     * @param Themes $theme
      */
-    public function __construct(Filesystem $files, LaravelThemes $theme)
+    public function __construct(Filesystem $files, Themes $theme)
     {
         parent::__construct();
 
@@ -69,8 +69,8 @@ class GenerateThemeCommand extends Command
         $this->container['slug'] = str_slug($this->argument('slug'));
         $this->container['name'] = studly_case($this->container['slug']);
         $this->container['version'] = '1.0';
-        $this->container['author'] ='';
-        $this->container['description'] = 'This is the description for the '.$this->container['name'].' theme.';
+        $this->container['author'] = '';
+        $this->container['description'] = 'This is the description for the ' . $this->container['name'] . ' theme.';
 
         $this->displayHeader('generate_theme_introduction');
 
@@ -93,11 +93,11 @@ class GenerateThemeCommand extends Command
         $this->container['description'] = $this->ask('Please enter the description of the theme:', $this->container['description']);
 
         $this->comment('You have provided the following manifest information:');
-        $this->comment('Name:                       '.$this->container['name']);
-        $this->comment('Slug:                       '.$this->container['slug']);
-        $this->comment('Version:                    '.$this->container['version']);
-        $this->comment('Author:                     '.$this->container['author']);
-        $this->comment('Description:                '.$this->container['description']);
+        $this->comment('Name:                       ' . $this->container['name']);
+        $this->comment('Slug:                       ' . $this->container['slug']);
+        $this->comment('Version:                    ' . $this->container['version']);
+        $this->comment('Author:                     ' . $this->container['author']);
+        $this->comment('Description:                ' . $this->container['description']);
 
         if ($this->confirm('If the provided information is correct, type "yes" to generate.')) {
             $this->comment('Thanks! That\'s all we need.');
@@ -117,7 +117,7 @@ class GenerateThemeCommand extends Command
     protected function generate()
     {
         $steps = [
-            'Generating theme...'       => 'generateTheme',
+            'Generating theme...' => 'generateTheme',
         ];
 
         $progress = new ProgressBar($this->output, count($steps));
@@ -133,12 +133,12 @@ class GenerateThemeCommand extends Command
 
         $progress->finish();
 
-        event($this->container['slug'].'.theme.generated');
+        event($this->container['slug'] . '.theme.generated');
 
         $this->info("\nTheme generated successfully.");
-        $this->comment("You can see it in \"./public/".config('themes.paths.base')."/".$this->container['slug']."/\"");
+        $this->comment("You can see it in \"./public/" . config('themes.paths.base') . "/" . $this->container['slug'] . "/\"");
         $this->info("\nUse it with the falowing code:");
-        $this->comment("\nTheme::setActive('".$this->container['slug']."');\nTheme::view('welcome', \$data);");
+        $this->comment("\nTheme::setActive('" . $this->container['slug'] . "');\nTheme::view('welcome', \$data);");
     }
 
     /**
@@ -152,7 +152,7 @@ class GenerateThemeCommand extends Command
         }
 
         $directory = config('themes.paths.absolute') . '/' . $this->container['slug'];
-        $source = __DIR__.'/../../../resources/theme';
+        $source = __DIR__ . '/../../../resources/theme';
 
         $this->files->makeDirectory($directory);
 
@@ -162,7 +162,7 @@ class GenerateThemeCommand extends Command
             $contents = $this->replacePlaceholders($file->getContents());
             $subPath = $file->getRelativePathname();
 
-            $filePath = $directory.'/'.$subPath;
+            $filePath = $directory . '/' . $subPath;
             $dir = dirname($filePath);
 
             if (!$this->files->isDirectory($dir)) {
@@ -183,7 +183,7 @@ class GenerateThemeCommand extends Command
      */
     protected function displayHeader($file = '', $level = 'info')
     {
-        $stub = $this->files->get(__DIR__.'/../../../resources/stubs/console/'.$file.'.stub');
+        $stub = $this->files->get(__DIR__ . '/../../../resources/stubs/console/' . $file . '.stub');
 
         return $this->$level($stub);
     }

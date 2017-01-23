@@ -1,16 +1,16 @@
 <?php
 
-namespace pierresilva\LaravelThemes;
+namespace pierresilva\Themes;
 
 use URL;
-use pierresilva\LaravelThemes\Exceptions\FileMissingException;
+use pierresilva\Themes\Exceptions\FileMissingException;
 use Illuminate\Config\Repository;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\Http\Response;
 use Illuminate\View\Factory as ViewFactory;
 
-class LaravelThemes
+class Themes
 {
 	/**
 	 * @var string
@@ -408,7 +408,7 @@ class LaravelThemes
 	 */
 	protected function getModuleView($view)
 	{
-		if (class_exists('pierresilva\LaravelModules\Modules')) {
+		if (class_exists('pierresilva\Modules\Modules')) {
 			$viewSegments = explode('.', $view);
 
 			if ($viewSegments[0] == 'modules') {

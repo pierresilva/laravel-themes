@@ -1,9 +1,9 @@
 <?php
-namespace pierresilva\LaravelThemes\Facades;
+namespace pierresilva\Themes\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
-class LaravelTheme extends Facade
+class Theme extends Facade
 {
 	/**
 	 * Get the registered name of the component.

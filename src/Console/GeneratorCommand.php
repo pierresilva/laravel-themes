@@ -1,10 +1,10 @@
 <?php
 
-namespace pierresilva\LaravelThemes\Console;
+namespace pierresilva\Themes\Console;
 
 use Illuminate\Console\GeneratorCommand as LaravelGeneratorCommand;
 use Illuminate\Support\Str;
-use LaravelThemes;
+use Themes;
 
 abstract class GeneratorCommand extends LaravelGeneratorCommand
 {

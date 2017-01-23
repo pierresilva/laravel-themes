@@ -1,6 +1,6 @@
 <?php
 
-namespace pierresilva\LaravelThemes\Providers;
+namespace pierresilva\Themes\Providers;
 
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\ServiceProvider;

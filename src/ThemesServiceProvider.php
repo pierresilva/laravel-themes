@@ -1,10 +1,10 @@
 <?php
-namespace pierresilva\LaravelThemes;
+namespace pierresilva\Themes;
 
 use Illuminate\Support\ServiceProvider;
-use pierresilva\LaravelThemes\Providers\HelperServiceProvider;
+use pierresilva\Themes\Providers\HelperServiceProvider;
 
-class LaravelThemesServiceProvider extends ServiceProvider {
+class ThemesServiceProvider extends ServiceProvider {
 
 	/**
 	 * Indicates if loading of the provider is deferred.
