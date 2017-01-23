@@ -14,12 +14,12 @@ Once this operation is complete, simply add both the service provider and facade
 
 #### Service Provider
 ```php
-pierresilva\LaravelThemes\LaravelThemesServiceProvider::class,
+pierresilva\Themes\ThemesServiceProvider::class,
 ```
 
 #### Facade
 ```php
-'Theme' => pierresilva\LaravelThemes\Facades\LaravelTheme::class,
+'Theme' => pierresilva\Themes\Facades\Theme::class,
 ```
 
 Publishing The Config File
@@ -169,7 +169,7 @@ Let's say we have bootstrap theme in our application with the following structur
 public/
     |-- themes/
         |-- bootstrap/
-            |-- theme.json   <--- theme manifest file
+            |-- theme.json
             |-- assets/
                 |-- css/
                     |-- bootstrap.css
@@ -178,9 +178,9 @@ public/
                     |-- bootstrap.js
                     |-- jquery.js
             |-- views/
-                |-- layout.blade.php     <--- this is our view layout
+                |-- layout.blade.php
                 |-- auth/
-                    |-- login.blade.php  <--- this is our login view
+                    |-- login.blade.php
 ````
 
 First, we need **theme.json** manifest file.
@@ -231,7 +231,7 @@ public function getLogin()
 
 Now, for our login.blade.php:
 
-```php
+```html
 @extends('bootstrap::layout')
 
 @section('content')
