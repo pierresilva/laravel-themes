@@ -21,7 +21,7 @@ class ThemesServiceProvider extends ServiceProvider {
 	public function boot()
 	{
 		$this->publishes([
-			__DIR__.'/../config/laravel-themes.php' => config_path('laravel-themes.php')
+			__DIR__.'/../config/themes.php' => config_path('themes.php')
 		]);
 	}
 
@@ -33,13 +33,13 @@ class ThemesServiceProvider extends ServiceProvider {
 	public function register()
 	{
 		$this->mergeConfigFrom(
-		    __DIR__.'/../config/laravel-themes.php', 'themes'
+		    __DIR__.'/../config/themes.php', 'themes'
 		);
 
 		$this->app->register(HelperServiceProvider::class);
 
 		$this->commands(
-            'pierresilva\LaravelThemes\Console\Generators\GenerateThemeCommand'
+            'pierresilva\Themes\Console\Generators\GenerateThemeCommand'
         );
 
 		$this->registerServices();
@@ -63,7 +63,7 @@ class ThemesServiceProvider extends ServiceProvider {
 	protected function registerServices()
 	{
 		$this->app->singleton('themes', function($app) {
-			return new LaravelThemes($app['files'], $app['config'], $app['view']);
+			return new Themes($app['files'], $app['config'], $app['view']);
 		});
 
 		$this->app->booting(function($app) {
