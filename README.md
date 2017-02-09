@@ -25,9 +25,9 @@ pierresilva\Themes\ThemesServiceProvider::class,
 Publishing The Config File
 --------------------------
 ```php
-php artisan vendor:publish
+php artisan vendor:publish --provider="pierresilva\Themes\ThemesServiceProvider"
 ```
-This will copy the bundled config file to config/laravel-themes.php
+This will copy the bundled config file to config/themes.php
 
 Configuration Options
 ---------------------
